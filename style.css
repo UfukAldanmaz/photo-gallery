@@ -26,6 +26,33 @@
     box-shadow: 0 11px rgba(33, 33, 33, .2);
 }
 
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.new-title {
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.new-img {
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.add-btn {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    width: 50px;
+}
 
 .photo {
     width: 250px;
