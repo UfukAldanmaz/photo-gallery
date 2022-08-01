@@ -38,10 +38,6 @@ const getPhotos = async () => {
     }
 }
 
-// function remove(e) {
-//     e.currentTarget.toRemove.remove();
-// }
-
 getPhotos();
 
 const addCustomPhoto = (e) => {
@@ -49,12 +45,10 @@ const addCustomPhoto = (e) => {
     const photos = document.querySelector('.photos');
     const title = document.getElementById('title').value;
     const imageUrl = document.getElementById('img-url').value;
-    const photo = { title: title, thumbnailUrl: imageUrl }
-    const photoNode = createPhotoNode(photo);
+    const customPhoto = { title: title, thumbnailUrl: imageUrl }
+    const photoNode = createPhotoNode(customPhoto);
     photos.appendChild(photoNode);
-
 }
-
 
 form.addEventListener('submit', addCustomPhoto);
 
@@ -71,7 +65,6 @@ const createPhotoNode = (photo) => {
     removeMark.addEventListener('click', () => {
         imgElement.remove()
     });
-    // removeMark.toRemove = imgElement;
     imgTitle.innerHTML = photo.title;
     images.src = photo.thumbnailUrl;
     imgElement.appendChild(removeMark);
