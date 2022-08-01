@@ -38,9 +38,9 @@ const getPhotos = async () => {
     }
 }
 
-function remove() {
-    document.querySelector('.photo').remove();
-}
+// function remove(e) {
+//     e.currentTarget.toRemove.remove();
+// }
 
 getPhotos();
 
@@ -68,7 +68,10 @@ const createPhotoNode = (photo) => {
     const removeMark = document.createElement('span');
     removeMark.classList.add('remove-mark');
     removeMark.innerHTML = '❌'
-    removeMark.addEventListener('click', remove);
+    removeMark.addEventListener('click', () => {
+        imgElement.remove()
+    });
+    // removeMark.toRemove = imgElement;
     imgTitle.innerHTML = photo.title;
     images.src = photo.thumbnailUrl;
     imgElement.appendChild(removeMark);
