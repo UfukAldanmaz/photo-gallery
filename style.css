@@ -8,9 +8,9 @@
 
 .input-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .search {
@@ -52,6 +52,11 @@
     color: white;
     border: none;
     width: 50px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
 .photo {
@@ -86,10 +91,10 @@
 
 .remove-mark {
     float: right;
-    margin-right: 8px;
-    margin-top: 8px;
+    margin-right: 10px;
+    margin-top: 10px;
     cursor: pointer;
-    color: red;
+    font-size: xx-small;
 }
 
 .remove-mark:hover {
