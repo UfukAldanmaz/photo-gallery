@@ -1,7 +1,9 @@
 
 const search = document.getElementById('search-input');
 let data = [];
-const form = document.getElementById('custom-form')
+const form = document.getElementById('custom-form');
+let modalForm = document.querySelector('.modal-form');
+let modalClose = document.querySelector('.close-modal');
 
 search.addEventListener('keyup', (e) => {
     const searchText = e.target.value;
@@ -45,12 +47,24 @@ const addCustomPhoto = (e) => {
     const photos = document.querySelector('.photos');
     const title = document.getElementById('title').value;
     const imageUrl = document.getElementById('img-url').value;
-    const customPhoto = { title: title, thumbnailUrl: imageUrl }
+    const customPhoto = { title: title, thumbnailUrl: imageUrl };
     const photoNode = createPhotoNode(customPhoto);
     photos.appendChild(photoNode);
 }
 
+// const editPhoto = (e) => {
+//     e.preventDefault();
+//     const photos = document.querySelector('.photos');
+//     const title = document.getElementById('edit-title').value;
+//     const imageUrl = document.getElementById('edit-url').value;
+//     const editPhoto = { title: title, thumbnailUrl: imageUrl };
+//     const editing = createPhotoNode(editPhoto);
+//     photos.appendChild(editing);
+// }
+
 form.addEventListener('submit', addCustomPhoto);
+
+// modalForm.addEventListener('submit', editPhoto);
 
 const createPhotoNode = (photo) => {
     const imgElement = document.createElement('div');
@@ -59,6 +73,15 @@ const createPhotoNode = (photo) => {
     imgTitle.classList.add('title');
     const images = document.createElement('img');
     images.classList.add('images')
+    const modalContainer = document.createElement('div');
+    modalContainer.classList.add('modal-container');
+    const modalBtn = document.createElement('button');
+    modalBtn.innerHTML = 'Edit';
+    modalBtn.classList.add('modal-btn');
+    modalBtn.addEventListener('click', function () {
+        modalForm.classList.add('modal-active');
+    });
+
     const removeMark = document.createElement('span');
     removeMark.classList.add('remove-mark');
     removeMark.innerHTML = '❌'
@@ -70,6 +93,12 @@ const createPhotoNode = (photo) => {
     imgElement.appendChild(removeMark);
     imgElement.appendChild(imgTitle);
     imgElement.appendChild(images);
+    imgElement.appendChild(modalContainer);
+    modalContainer.appendChild(modalBtn);
 
     return imgElement;
 }
+
+modalClose.addEventListener('click', function () {
+    modalForm.classList.remove('modal-active');
+})
