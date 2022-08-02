@@ -2,7 +2,7 @@
  
  My assignment for Kodluyoruz Frontend Bootcamp. 
  
- * Users can search, edit a card which consists of an image and a title via a modal, remove a card.  
+ * Users can search, edit a card which consists of an image and a title via a modal, remove a card or add a new card.  
  
  Live site: https://ufukaldanmaz.github.io/photo-gallery/
  
