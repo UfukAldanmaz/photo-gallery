@@ -7,7 +7,7 @@ let modalClose = document.querySelector('.close-modal');
 let updateBtn = document.querySelector('.save-btn');
 
 search.addEventListener('keyup', (e) => {
-    const searchText = e.target.value;
+    const searchText = e.target.value.toLowerCase();
     const filtered = data.filter(photo => {
         return (
             photo.title.toLowerCase().includes(searchText)
