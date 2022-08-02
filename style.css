@@ -1,3 +1,33 @@
+@media only screen and (max-width: 600px) {
+    #custom-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #text-error {
+        padding-bottom: 7px;
+    }
+
+    #img-error {
+        padding-bottom: 7px;
+    }
+
+    #mdl {
+        width: 100%;
+    }
+
+    #search-input {
+        width: 300px;
+    }
+
+    #search-input:hover {
+        width: 320px;
+        box-shadow: 0 11px rgba(33, 33, 33, .2);
+    }
+}
+
 .photos {
     display: flex;
     flex-direction: row;
@@ -24,12 +54,6 @@
 .search:hover {
     width: 400px;
     box-shadow: 0 11px rgba(33, 33, 33, .2);
-}
-
-@media only screen and (max-width: 600px) {
-    body {
-        width: auto;
-    }
 }
 
 .form {
