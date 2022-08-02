@@ -26,6 +26,12 @@
     box-shadow: 0 11px rgba(33, 33, 33, .2);
 }
 
+@media only screen and (max-width: 600px) {
+    body {
+        width: auto;
+    }
+}
+
 .form {
     display: flex;
     flex-direction: row;
@@ -127,6 +133,7 @@
     box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 
 }
+
 
 .modal-container {
     display: flex;
