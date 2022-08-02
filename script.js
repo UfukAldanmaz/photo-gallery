@@ -68,7 +68,7 @@ function validateForm(title, imageUrl) {
         titleError.textContent = '';
     }
     const imageUrlError = document.getElementById('img-error');
-    if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+    if (!imageUrl.match(/^https?:\/\/.+\/.+$/)) {
         imageUrlError.textContent = 'Type a valid url!';
         isValid = false;
     } else {
@@ -145,7 +145,7 @@ function editFormValidate(title, imageUrl) {
         titleError.textContent = '';
     }
     const imageUrlError = document.getElementById('edit-url-err');
-    if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+    if (!imageUrl.match(/^https?:\/\/.+\/.+$/)) {
         imageUrlError.textContent = 'Type a valid url!';
         isValid = false;
     } else {
