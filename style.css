@@ -34,10 +34,22 @@
 }
 
 .new-title {
-    height: 20px;
     margin-right: 5px;
     border-radius: 5px;
     border: 1px solid gray;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#text-error {
+    color: red;
+    font-size: small;
+    padding-left: 3px;
+    height: 10px;
 }
 
 .new-img {
@@ -46,13 +58,27 @@
     border: 1px solid gray;
 }
 
+.img-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#img-error {
+    color: red;
+    font-size: small;
+    padding-left: 3px;
+    height: 10px;
+}
+
 .add-btn {
     border-radius: 5px;
     background-color: dodgerblue;
     color: white;
     border: none;
-    width: 50px;
     cursor: pointer;
+    height: 20px;
+    width: 50px;
 }
 
 .add-btn:hover {
@@ -173,4 +199,14 @@
     top: 10px;
     cursor: pointer;
     font-size: xx-small;
+}
+
+#edit-text-err {
+    color: red;
+    font-size: 15px;
+}
+
+#edit-url-err {
+    font-size: 15px;
+    color: red;
 }

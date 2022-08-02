@@ -4,6 +4,7 @@ let data = [];
 const form = document.getElementById('custom-form');
 let modalForm = document.querySelector('.modal-form');
 let modalClose = document.querySelector('.close-modal');
+let updateBtn = document.querySelector('.save-btn');
 
 search.addEventListener('keyup', (e) => {
     const searchText = e.target.value;
@@ -44,27 +45,41 @@ getPhotos();
 
 const addCustomPhoto = (e) => {
     e.preventDefault();
-    const photos = document.querySelector('.photos');
     const title = document.getElementById('title').value;
     const imageUrl = document.getElementById('img-url').value;
+
+    if (!validateForm(title, imageUrl)) {
+        return;
+    }
+
     const customPhoto = { title: title, thumbnailUrl: imageUrl };
     const photoNode = createPhotoNode(customPhoto);
+    const photos = document.querySelector('.photos');
     photos.appendChild(photoNode);
 }
 
-// const editPhoto = (e) => {
-//     e.preventDefault();
-//     const photos = document.querySelector('.photos');
-//     const title = document.getElementById('edit-title').value;
-//     const imageUrl = document.getElementById('edit-url').value;
-//     const editPhoto = { title: title, thumbnailUrl: imageUrl };
-//     const editing = createPhotoNode(editPhoto);
-//     photos.appendChild(editing);
-// }
+function validateForm(title, imageUrl) {
+    let isValid = true;
+    const titleError = document.getElementById('text-error');
+    if (title == '') {
+        titleError.textContent = 'The field must be filled out!'
+        isValid = false;
+    } else {
+        titleError.textContent = '';
+    }
+    const imageUrlError = document.getElementById('img-error');
+    if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+        imageUrlError.textContent = 'Type a valid url!';
+        isValid = false;
+    } else {
+        imageUrlError.textContent = '';
+    }
+
+    return isValid;
+}
 
 form.addEventListener('submit', addCustomPhoto);
 
-// modalForm.addEventListener('submit', editPhoto);
 
 const createPhotoNode = (photo) => {
     const imgElement = document.createElement('div');
@@ -80,8 +95,12 @@ const createPhotoNode = (photo) => {
     modalBtn.classList.add('modal-btn');
     modalBtn.addEventListener('click', function () {
         modalForm.classList.add('modal-active');
+        const title = document.querySelector('.edit-title');
+        const imageUrl = document.querySelector('.edit-url');
+        title.value = photo.title
+        imageUrl.value = photo.thumbnailUrl;
+        updateBtn.relatedBox = imgElement;
     });
-
     const removeMark = document.createElement('span');
     removeMark.classList.add('remove-mark');
     removeMark.innerHTML = '❌'
@@ -102,3 +121,36 @@ const createPhotoNode = (photo) => {
 modalClose.addEventListener('click', function () {
     modalForm.classList.remove('modal-active');
 })
+
+updateBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const title = document.querySelector('.edit-title').value;
+    const imageUrl = document.querySelector('.edit-url').value;
+    if (!editFormValidate(title, imageUrl)) {
+        return;
+    }
+    const box = e.target.relatedBox;
+    box.querySelector('.title').innerHTML = title;
+    box.querySelector('.images').src = imageUrl;
+    modalForm.classList.remove('modal-active');
+});
+
+function editFormValidate(title, imageUrl) {
+    let isValid = true;
+    const titleError = document.getElementById('edit-text-err');
+    if (title == '') {
+        titleError.textContent = 'The field must be filled out!'
+        isValid = false;
+    } else {
+        titleError.textContent = '';
+    }
+    const imageUrlError = document.getElementById('edit-url-err');
+    if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+        imageUrlError.textContent = 'Type a valid url!';
+        isValid = false;
+    } else {
+        imageUrlError.textContent = '';
+    }
+
+    return isValid;
+}

@@ -15,16 +15,24 @@
         <input type="text" class="search" id="search-input" value="" placeholder="Searching...">
     </div>
     <form class="form" id="custom-form">
-        <input type="text" placeholder="Add a title" class="new-title" id="title">
-        <input type="text" placeholder="Add an URL" class="new-img" id="img-url">
+        <div class="title-container">
+            <input type="text" placeholder="Add a title" class="new-title" id="title">
+            <span id="text-error"></span>
+        </div>
+        <div class="img-container">
+            <input type="text" placeholder="Add an URL" class="new-img" id="img-url">
+            <span id="img-error"></span>
+        </div>
         <button class="add-btn">Add</button>
     </form>
     <div class="photos"></div>
     <form class="modal-form">
         <div class="modal">
             <span class="close-modal">❌</span>
-            <input type="text" placeholder="Edit title" class="edit-title" id="edit-title">
-            <input type="text" placeholder="Edit url" class="edit-url" id="edit-url">
+            <input placeholder="Edit title" class="edit-title">
+            <span id="edit-text-err"></span>
+            <input placeholder="Edit url" class="edit-url">
+            <span id="edit-url-err"></span>
             <button class="save-btn">Save</button>
         </div>
 
