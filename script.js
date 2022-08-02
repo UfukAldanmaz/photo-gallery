@@ -13,8 +13,6 @@ search.addEventListener('keyup', (e) => {
             photo.title.toLowerCase().includes(searchText)
         );
     })
-    console.log(filtered);
-
     displayPhotos(filtered);
 })
 
